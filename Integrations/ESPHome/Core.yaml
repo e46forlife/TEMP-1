@@ -1,5 +1,5 @@
 substitutions:
-  version: "25.8.6.1"
+  version: "25.11.20.1"
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -270,6 +270,7 @@ sensor:
     name: "Temperature Probe"
     update_interval: 60s
     id: temp_probe
+    index: 0
     filters:
       - lambda: |-
           if (isnan(x)) {
@@ -292,6 +293,26 @@ sensor:
         then:
           - lambda: |-
               id(tempRangeCheck).execute();
+  - platform: dallas_temp
+    name: "Temperature Probe 2"
+    update_interval: 60s
+    id: temp_probe_2
+    index: 1
+    disabled_by_default: true
+
+  - platform: dallas_temp
+    name: "Temperature Probe 3"
+    update_interval: 60s
+    id: temp_probe_3
+    index: 2
+    disabled_by_default: true
+
+  - platform: dallas_temp
+    name: "Temperature Probe 4"
+    update_interval: 60s
+    id: temp_probe_4
+    index: 3
+    disabled_by_default: true
     
   - platform: aht10
     variant: AHT20
