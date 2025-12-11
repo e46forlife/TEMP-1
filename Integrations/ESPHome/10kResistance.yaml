@@ -6,7 +6,7 @@ sensor:
     sensor: source_sensor
     configuration: DOWNSTREAM
     reference_voltage: 3.3V
-    resistor: 100kOhm    # This matches the tiny resistor soldered on the PCB.
+    resistor: 47kOhm    # This matches the tiny resistor soldered on the PCB.
     name: "Debug Resistance"
     internal: false
     accuracy_decimals: 1
