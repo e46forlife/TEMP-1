@@ -19,3 +19,4 @@ sensor:
       b_constant: 3950           # Standard curve for 10k Pool Probes
       reference_temperature: 25C
       reference_resistance: 10kOhm # Defines this as a 10k probe
+    name: "Water Temperature"
