@@ -1,15 +1,21 @@
 sensor:
+  # 1. READ RESISTANCE
+  # We copy this exactly from 100Resistance.yaml so the board reads the electricity correctly.
   - platform: resistance
-    id: ntc_sensor
-    sensor: temp_analog_reading
-    configuration: DOWNSTREAM
-    resistor: 100k  # Hardware resistor on the PCB (Keep this 100k)
-    name: "NTC Resistance"
+    id: resistance_sensor
+    sensor: source_sensor
+    configuration: UPSTREAM
+    reference_voltage: 3.3V
+    resistor: 100kOhm    # This matches the tiny resistor soldered on the PCB.
+    name: Resistance Sensor
+    internal: true
+    accuracy_decimals: 4
 
-  - platform: ntc
-    sensor: ntc_sensor
+  # 2. OVERRIDE TEMPERATURE MATH
+  # The 'ntc_sensor' is defined in Core.yaml with 100k math.
+  # We use "!extend" to tell ESPHome: "Keep the sensor, but change the calibration for 10k."
+  - id: !extend ntc_sensor
     calibration:
-      b_constant: 3950           # Curve for standard 10k pool probes
+      b_constant: 3950           # Standard curve for 10k Pool Probes
       reference_temperature: 25C
-      reference_resistance: 10kOhm # Tells ESPHome this is a 10k probe
-    name: "Pool Water"
+      reference_resistance: 10kOhm # Defines this as a 10k probe
