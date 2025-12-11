@@ -7,9 +7,9 @@ sensor:
     configuration: DOWNSTREAM
     reference_voltage: 3.3V
     resistor: 100kOhm    # This matches the tiny resistor soldered on the PCB.
-    name: Resistance Sensor
-    internal: true
-    accuracy_decimals: 4
+    name: "Debug Resistance"
+    internal: false
+    accuracy_decimals: 1
 
   # 2. OVERRIDE TEMPERATURE MATH
   # The 'ntc_sensor' is defined in Core.yaml with 100k math.
