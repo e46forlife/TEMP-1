@@ -1,0 +1,15 @@
+sensor:
+  - platform: resistance
+    id: ntc_sensor
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 100k  # Hardware resistor on the PCB (Keep this 100k)
+    name: "NTC Resistance"
+
+  - platform: ntc
+    sensor: ntc_sensor
+    calibration:
+      b_constant: 3950           # Curve for standard 10k pool probes
+      reference_temperature: 25C
+      reference_resistance: 10kOhm # Tells ESPHome this is a 10k probe
+    name: "Pool Water"
