@@ -4,9 +4,9 @@ sensor:
   - platform: resistance
     id: resistance_sensor
     sensor: source_sensor
-    configuration: DOWNSTREAM
+    configuration: UPSTREAM
     reference_voltage: 3.3V
-    resistor: 47kOhm    # This matches the tiny resistor soldered on the PCB.
+    resistor: 4.7kOhm    # This matches the tiny resistor soldered on the PCB.
     name: "Debug Resistance"
     internal: false
     accuracy_decimals: 1
