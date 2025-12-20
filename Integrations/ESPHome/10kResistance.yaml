@@ -6,7 +6,7 @@ sensor:
     sensor: source_sensor
     configuration: UPSTREAM
     reference_voltage: 3.3V
-    resistor: 4.7kOhm    # This matches the tiny resistor soldered on the PCB.
+    resistor: 3.3kOhm    # This matches the tiny resistor soldered on the PCB.
     name: "Debug Resistance"
     internal: false
     accuracy_decimals: 1
